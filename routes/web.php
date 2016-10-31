@@ -18,7 +18,7 @@ Route::get("clients/{id}/delete", "ClientController@destroy");
 Route::get("clients/{id}/edit", "ClientController@edit");
 Route::post("clients/update", "ClientController@update");
 
-Route::get("clients/export_csv", "ClientController@csvExport");
+Route::get("all_clients/export", "ClientController@csvExport");
 
 Route::get('/', function () {
     return view('welcome');

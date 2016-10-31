@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Client;
 
-use DB;
+use DB , Response;
 
 class ClientController extends Controller
 {
@@ -126,30 +126,21 @@ class ClientController extends Controller
             return redirect('clients');
     }
     
-    public function csvExport($id){
-//        $clients = Client::all();
-//        $output='';
-//        foreach ($clients as $row) {
-//            $output.=  implode(",",$row->toArray());
-//        }
-//        $headers = array(
-//            'Content-Type' => 'text/csv',
-//            'Content-Disposition' => 'attachment; filename="ExportFileName.csv"',
-//        );
-//
-//        return Response::make(rtrim($output, "\n"), 200, $headers);
+    public function csvExport(){
         
-         $clients = Client::all();
-
-        $formatter = Formatter::make($entitiesArray, Formatter::ARR);
-
-        $csv = $formatter->toCsv();
-
-        header('Content-Disposition: attachment; filename="export.csv"');
-        header("Cache-control: private");
-        header("Content-type: application/force-download");
-        header("Content-transfer-encoding: binary\n");
-
-        echo $csv;
+        $clients = Client::all();
+        $filename = "Clients.csv";
+        $handle = fopen($filename, 'w+'); 
+        fputcsv($handle, array('Name', 'Gender', 'Phone', 'Email', 'Address', 'Nationality', 'DOB', 'Education Background', 'Contact Mode', 'Created Date'));
+        foreach($clients as $row) {
+            fputcsv($handle, array($row['name'],$row['gender'],$row['phone'],$row['email'],$row['address'], $row['nationality'], $row['dob'],$row['education_background'],$row['contact_mode'],$row['created_at']));
+        }
+        fclose($handle);
+        $headers = array(
+            'Content-Type' => 'text/csv',
+        );
+        return Response::download($filename, 'Clients.csv', $headers);
+        
     }
+    
 }

@@ -70,7 +70,8 @@
 
                 </div>
                 
-                <button class="btn btn-primary"><a href="{{url('clients/create')}}" style="color: #fff;">Add New</a></button>
+                <a href="{{url('clients/create')}}" style="color: #fff;"><button class="btn btn-primary">Add New</button></a>
+                <a href="{{url('all_clients/export')}}"><button type="button"  class="btn btn-primary" style="color: #fff;">Export</button></a>
                 </div>
                 <!-- /.box-body --> 
             </div>
