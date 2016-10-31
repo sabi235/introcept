@@ -31,6 +31,13 @@
                 </div> 
                  
                 <div class="main-login main-center">
+                    <div class="flash-message">
+                        <ul>
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
                      @if(isset($clients))
                      <form method="post" name="client_form" action="{{ url('clients/update') }}" >
                         <input type="hidden" id="{{$clients->id}}" name="id" value="{{$clients->id}}" />
@@ -44,7 +51,7 @@
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name" value="{{$name}}" required/>
+                                    <input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name" value="{{$name}}" />
                                 </div>
                             </div>
                         </div>
@@ -53,7 +60,7 @@
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-group fa" aria-hidden="true"></i></span>
-                                    <select class="form-control" name="gender" id="gender" required>
+                                    <select class="form-control" name="gender" id="gender" >
                                         <option value="" >Enter your Gender</option>
                                         <option value="male" <?php if(isset($clients->gender) && ($clients->gender == "male")) echo 'selected'; ?> >Male</option>
                                         <option value="female" <?php if(isset($clients->gender) && ($clients->gender == "female")) echo 'selected'; ?>>Female</option>
@@ -67,7 +74,7 @@
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="phone" id="phone"  placeholder="Enter your Phone" value="{{$phone}}" required/>
+                                    <input type="text" class="form-control" name="phone" id="phone"  placeholder="Enter your Phone" value="{{$phone}}" />
                                 </div>
                             </div>
                         </div>
@@ -77,7 +84,7 @@
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email" value="{{$email}}" required/>
+                                    <input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email" value="{{$email}}" />
                                 </div>
                             </div>
                         </div>
@@ -87,7 +94,7 @@
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-location-arrow fa" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="address" id="address"  placeholder="Enter your Address" value="{{$address}}" required/>
+                                    <input type="text" class="form-control" name="address" id="address"  placeholder="Enter your Address" value="{{$address}}" />
                                 </div>
                             </div>
                         </div>
@@ -97,7 +104,7 @@
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-globe fa" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="nationality" id="nationality"  placeholder="Enter your Nationality" value="{{$nationality}}" required/>
+                                    <input type="text" class="form-control" name="nationality" id="nationality"  placeholder="Enter your Nationality" value="{{$nationality}}" />
                                 </div>
                             </div>
                         </div>
@@ -107,7 +114,7 @@
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-calendar fa" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="dob" id="datepicker"  placeholder="Enter your Data of Birth" value="{{$dob}}" required/>
+                                    <input type="text" class="form-control" name="dob" id="datepicker"  placeholder="Enter your Data of Birth" value="{{$dob}}" />
                                 </div>
                             </div>
                         </div>
@@ -126,7 +133,7 @@
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-square-o fa" aria-hidden="true"c></i></span>
-                                    <select class="form-control" name="contact_mode" id="contact_mode" required>
+                                    <select class="form-control" name="contact_mode" id="contact_mode" >
                                         <option value="">Enter Contact Mode</option>
                                         <option value="email" <?php if(isset($clients->contact_mode) && ($clients->contact_mode == "email")) echo 'selected'; ?>>Email</option>
                                         <option value="phone" <?php if(isset($clients->contact_mode) && ($clients->contact_mode == "phone")) echo 'selected'; ?>>Phone</option>
