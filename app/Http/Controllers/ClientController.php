@@ -36,9 +36,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-       return $this->loadpage('clients.form_clients','Create Client');
-       //form validation server side
-    
+       return $this->loadpage('clients.form_clients','Create Client');    
     }
 
     /**
@@ -52,9 +50,9 @@ class ClientController extends Controller
         $data = $request->all();
         $clients = Client::create($data); 
         if($clients->id>0){
-            $this->set_message("Clients created successfully");
+            $request->session()->flash('alert-success', 'Client Added successfully!');
         }else{
-            $this->set_message("Couldn\'t create new Clients");
+            $request->session()->flash('alert-danger', 'Couldn\'t create new Client!');
         }
         return redirect('clients');
     }
@@ -102,9 +100,9 @@ class ClientController extends Controller
         $clients->education_background  = $request->education_background;
         $clients->contact_mode  = $request->contact_mode;
         $clients->save();
-        $this->set_message("Clients updated successfully");
+        $request->session()->flash('alert-success', 'Client Updated successfully!');
         return redirect('clients');
-           //form validation server side
+          
     }
 
     /**
@@ -113,16 +111,16 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $client = Client::find($id);
         if($client){
             $client->delete();
-            $this->set_message("Client deleted successfully");
+            $request->session()->flash('alert-success', 'Client deleted successfully!');
             return redirect('clients');
         }
         else
-            $this->set_message("Client couldn\'t be deleted");
+            $request->session()->flash('alert-success', 'Client couldn\'t be deleted!');
             return redirect('clients');
     }
     

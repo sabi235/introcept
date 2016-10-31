@@ -30,6 +30,14 @@
                     <hr />
                  </div>
                 </div>
+                <div class="flash-message">
+    @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+      @if(Session::has('alert-' . $msg))
+
+      <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
+      @endif
+    @endforeach
+  </div> <!-- end .flash-message -->
                 
                 <!-- /.box-header -->
                 <div class="main-login main-center" style="max-width: 100%;">
@@ -71,7 +79,9 @@
                 </div>
                 
                 <a href="{{url('clients/create')}}" style="color: #fff;"><button class="btn btn-primary">Add New</button></a>
+                @if(count($clients)>0)
                 <a href="{{url('all_clients/export')}}"><button type="button"  class="btn btn-primary" style="color: #fff;">Export</button></a>
+                @endif
                 </div>
                 <!-- /.box-body --> 
             </div>
