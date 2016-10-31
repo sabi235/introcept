@@ -1,27 +1,33 @@
-# Laravel PHP Framework
+## Coding task for Software Engineer
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+The task is to build using Laravel 5.2 Framework and mysql for database
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+### Task
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+Things Done 
 
-## Official Documentation
+1. Create a form to get 
+  1. Name
+  1. Gender
+  1. Phone 
+  1. Email 
+  1. Address
+  1. Nationality
+  1. Date of birth
+  1. Education background 
+  1. Preferred mode of contact (select one from email, phone, none)
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+1. Used Bootstrap 
+1. Added validations 
+1. Show all clients pulled in from the CSV as another page
 
-## Contributing
+### Paths Used
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+1. Controller and Models are set in app folder
+    Controller : ClientController 
+    Model : Models/ClientModel
+ 
+1. CSS/JS in public folder 
+Used Bootstrap csss and main css for styling
+JS is used for datepicker and validations 
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
