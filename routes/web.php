@@ -12,14 +12,15 @@
 */
 
 /* Clients*/
-Route::get('clients', "ClientController@index");
+//Route::get('clients', "ClientController@index");
 Route::resource("clients", "ClientController");
 Route::get("clients/{id}/delete", "ClientController@destroy");
 Route::get("clients/{id}/edit", "ClientController@edit");
 Route::post("clients/update", "ClientController@update");
-
 Route::get("all_clients/export", "ClientController@csvExport");
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource("images123", "ImageController");
+
+//Route::get('/', function () {
+//    return view('welcome');
+//});

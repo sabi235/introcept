@@ -1,4 +1,4 @@
-## Coding task for Software Engineer
+## Coding
 
 The task is to build using Laravel 5.2 Framework and mysql for database
 

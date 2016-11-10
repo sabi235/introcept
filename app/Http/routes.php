@@ -19,4 +19,6 @@ Route::get("clients/{id}/edit", "ClientController@edit");
 Route::post("clients/update", "ClientController@update");
 
 Route::get("all_clients/export", "ClientController@csvExport");
+
+Route::resource("images123", "ImageController");
 ?>
